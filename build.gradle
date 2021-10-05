@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '28.0.2'
+
+    defaultConfig {
+        applicationId "com.example.uhf_bt"
+        minSdkVersion 18
+        targetSdkVersion 29
+        versionCode 4
+        versionName "1.4.3"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    signingConfigs {
+        debug {
+            File strFile = new File("/Users/try/Downloads/electron-el-uhf-rs01-android-java/el_uhf_rs01_release.jks")
+            storeFile file(strFile)
+            storePassword "123456"
+            keyPassword "123456"
+            keyAlias "key0"
+        }
+        release {
+            File strFile = new File("/Users/try/Downloads/electron-el-uhf-rs01-android-java/el_uhf_rs01_release.jks")
+            storeFile file(strFile)
+            storePassword "123456"
+            keyPassword "123456"
+            keyAlias "key0"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        android.applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "Electron_EL-UHF-RS01_v${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+    }
+
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation files('libs/cw-deviceapiver20191022.jar')
+    implementation('no.nordicsemi.android:dfu:1.9.0') {
+        exclude group: 'com.android.support'
+    }
+}

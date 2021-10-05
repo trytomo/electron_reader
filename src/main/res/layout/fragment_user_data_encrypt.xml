@@ -1,0 +1,97 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uhf_bt.fragment.UserDataEncryptFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Write encrypted data："/>
+            <TextView
+                android:id="@+id/tvWsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+           <EditText
+                android:id="@+id/etUserEncryptOld"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read encrypted data："/>
+            <TextView
+                android:id="@+id/tvRsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+          <EditText
+              android:id="@+id/etUserEncryptNew"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"/>
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Starting address"/>
+            <EditText
+                android:text="0"
+                android:inputType="number"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etS"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Data length"/>
+             <EditText
+                 android:text="16"
+                 android:inputType="number"
+                 android:layout_weight="1"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/etLen"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+               <Button
+                   android:id="@+id/btUserWrite"
+                   android:text="Write"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btUserRead"
+                android:text="Read"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>
